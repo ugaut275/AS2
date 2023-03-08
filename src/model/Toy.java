@@ -2,14 +2,14 @@ package model;
 
 public abstract class Toy {
 	
-	private int sin;
+	private String sin;
 	private int price;
 	private int stock;
 	private int age;
 	private String item;
 	private String brand;
 	
-	public Toy(int sin, String item, String brand, int price, int stock, int age) {
+	public Toy(String sin, String item, String brand, int price, int stock, int age) {
 		
 		this.sin = sin;
 		this.item = item;
@@ -21,7 +21,7 @@ public abstract class Toy {
 	}
 	
 	
-	public void setSIN(int sin) {
+	public void setSIN(String sin) {
 		this.sin = sin;
 	}
 	public void setItem(String item) {
@@ -43,7 +43,7 @@ public abstract class Toy {
 	
 	
 	
-	public int getSIN() {
+	public String getSIN() {
 		return sin;
 	}
 	public String getItem() {
