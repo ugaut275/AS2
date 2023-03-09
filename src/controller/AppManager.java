@@ -621,14 +621,14 @@ public class AppManager extends AppMenu{
 				digits = false;
 			}
 			if (digits == false) {
-				System.out.println("S_N cant contain letters");
+				S_N();
 				remove();
 			}
 			if (input.length() > 10) {
-				System.out.println("S_N cant be more than 10 digits");
+				morethan10();
 				remove();
 			} else if (input.length() < 10) {
-				System.out.println("S_N cant be less than 10 digits");
+				lessthan10();
 				remove();
 			}
 
@@ -640,14 +640,14 @@ public class AppManager extends AppMenu{
 				found = true;
 				secondList.add(toys);
 				count++;
-				System.out.println("\t " +toys);
+			printList(count, toys);
 
 			}
 
 		}
 
 		if (found == false) {
-			System.out.println("No toy with that S_N exists");
+			noToy("SN");
 			remove();
 		}
 		int goBack = count + 1;
@@ -661,7 +661,8 @@ public class AppManager extends AppMenu{
 					remove();
 				}
 				else if (userI.equalsIgnoreCase("y")) {
-					arrList.remove(secondList);
+					
+					arrList.remove(secondList.get(0));
 					saveFile();
 				}
 				else {

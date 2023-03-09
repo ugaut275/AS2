@@ -58,7 +58,7 @@ public class AppView extends AppMenu{
 			
 		}
 		else if (choice == 3) {
-	
+			AppManager.remove();
 		}
 		else if (choice == 4) {
 			System.exit(0);
