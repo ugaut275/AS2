@@ -3,7 +3,8 @@ package view;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-import model.ExceptionClass;
+import model.CustomExeptionClass;
+
 import model.Toy;
 
 public class AppMenu {
@@ -14,6 +15,7 @@ public class AppMenu {
 	}
 	
 	 public static int mainMenu() {
+		 try {
 	        System.out.println("*****************************************************************");
 	        System.out.println("*                 WELCOME TO TOY STORE COMPANY !                *");
 	        System.out.println("*****************************************************************\n");
@@ -25,12 +27,20 @@ public class AppMenu {
 	        System.out.println("(4) Save & Exit\n");
 	        System.out.print("Enter Option: ");
 	        int option = sc.nextInt();
+	    
 	        return option;
+	      
+		 } catch(InputMismatchException e) {
+			 mismatch();
+			 mainMenu();
+		 } 
+		return 0;
 	    }
 	 
 	 
 	 
 	 public static int searchAndPurchase() {
+		 try {
 		 Scanner sc = new Scanner(System.in);
 		 System.out.println("Find Toys With:/n");
 		 System.out.println("(1) Serial Number(SN)");
@@ -39,40 +49,62 @@ public class AppMenu {
 	     System.out.println("(4) Back to Main Menu\n");
 	     System.out.print("Enter Option: ");
 	     int option = sc.nextInt();
+	    
 	     return option; 
+		 }  catch(InputMismatchException e) {
+			 mismatch();
+			 searchAndPurchase();
+		 }
+		return 0; 
+	  
 	 }
 	 
-	 public static void enter(String x) {
-         System.out.println("Enter Option: " +x);
-     }
-     public static void printList(int count, Toy toys) {
-         System.out.println("\t" +count+ " " +toys);
-     }
-     public static void doesntExist(String x) {
-         System.out.println("A Toy With That" +x+ " Does Not Exist! Try again.");
-     }
-     public static void goBack(int goBack) {
-         System.out.println("\t " + (goBack) + "Return to Main Menu.");
-     }
-     
-     public static void itemPurchased() {
-         System.out.println("The Transaction Successfully Terminated!");
-     }
-     public static void noStock() {
-         System.out.println("This toy is out of stock, Sorry!");
-     }
-     public static void mismatch() {
-         System.out.println("Invalid Input, Returning to Menu.");
-     }
-     public static void sinLength() {
-         System.out.println("The Serial Number's length MUST be 10 digits! Try again.");
-     }
-     public static void sinFormat() {
-         System.out.println("The Serial Number should only contain digits! Try again.");
-     }
-     public static void doesExist(String x) {
-    	 System.out.println("A Toy With This" +x+ "Already Exists! Try Again.");
-     }
+
+		public static void enter(String x) {
+			System.out.println("Enter " +x);
+		}
+		public static void printList(int count, Toy toys) {
+			System.out.println("\t " + count + " " + toys);
+		}
+		public static void noToy(String x) {
+			System.out.println("No toy with that"+x+ "exists");
+		}
+		public static void goBack(int goBack) {
+			System.out.println("\t " + (goBack) + " Return to main menu");
+		}
+		public static void enterChoice() {
+			System.out.println("Enter a choice");
+		}
+		public static void purchaseC() {
+			System.out.println("Purchase complete");
+		}
+		public static void noStock() {
+			System.out.println("Out of stock sorry");
+		}
+		public static void outOfBounds() {
+			System.out.println("Enter a option from the Menu. Returning to select returning to menu ");
+		}
+		public static void mismatch() {
+			System.out.println("Invalid input returning to menu ");
+		}
+		public static void sns() {
+			System.out.println("S_N must be 10 digits long");
+		}
+		public static void S_N() {
+			System.out.println("S_N cant contain letters");
+		}
+		public static void lessthan10() {
+			System.out.println("S_N cant be less than 10 digits");
+		}
+		public static void morethan10() {
+			System.out.println("S_N cant be more than 10 digits");
+		}
+		public static void  wrongInput() {
+			System.out.println("Cannot input that type");
+		}
+		public static void existS_N() {
+			System.out.println("S_N already exists");
+		}
 	 
      
      public static int searchResults(int count, Toy toys) {
@@ -105,209 +137,188 @@ public class AppMenu {
 
      
      
-     public static Object [] addFig() throws ExceptionClass{
-         try {
-         Scanner sc = new Scanner(System.in);
-         Scanner sc1 = new Scanner(System.in);
-         System.out.println("Enter Serial Number: ");
-         String sin = sc.nextLine();
-         System.out.println("Enter Toy Name: ");
-         String input1 = sc.nextLine();
-         System.out.println("Enter Toy Brand: ");
-         String input2 = sc.nextLine();
-         System.out.println("Enter Toy Price: ");
-         Double d = sc.nextDouble();
-         System.out.println("Enter Available Count: ");
-         int stock = sc.nextInt();
-         System.out.println("Enter Appropriate Age: ");
-         int age = sc.nextInt();
-         
-         if (stock < 0 ) {
-             throw new ExceptionClass("The stock cannot be negative, try again!");
-         }
-         if ( age < 0) {
-             throw new ExceptionClass("The appropriate age cannot be negative, try again!");
-         }
-         if ( d < 0) {
-             throw new ExceptionClass("The price cannot be negative, try again!");
-         }
-         if (sin.charAt(0) != 0 || sin.charAt(0) != 1) {
-        	 throw new ExceptionClass("The first digit of a figures serial number must be 0 or 1, try again!");
-         }
+ 	public static Object [] addFig() throws CustomExeptionClass{
+		try {
+		Scanner sc = new Scanner(System.in);
+		Scanner sc1 = new Scanner(System.in);
+		System.out.println("enter name ");
+		String input1 = sc.nextLine();
+		System.out.println("brand :");
+		String input2 = sc.nextLine();
+		System.out.println("enter price :");
+		Double price= sc.nextDouble();
+		System.out.println("enter stock :");
+		int stock = sc.nextInt();
+		System.out.println("enter age");
+		int age = sc.nextInt();
+		if ( price< 0) {
+			throw new CustomExeptionClass("Cant have negative price, try again");
+		}
+		if ( age < 0) {
+			throw new CustomExeptionClass("Cant have negative age, try again");
+		}
+		if (stock < 0 ) {
+			
+			throw new CustomExeptionClass("Cant have negative stock, try again");
+			
+		}
+		
+		
+		
+		System.out.println("enter a,d or h");
+		String bb = sc1.nextLine().toUpperCase();
+		
+		Object [] fig = {input1, input2, price, stock, age, bb};
+		return fig;
+		} catch (InputMismatchException e) {
+			mismatch();
+			addFig();
+		}
+	
+		
+		return null;
+			
+		
+	}
+	public static Object[] addAnimals() throws CustomExeptionClass {
+		try {
+			Scanner sc = new Scanner(System.in);
+			Scanner sc1 = new Scanner(System.in);
+			System.out.println("enter name ");
+			String input1 = sc.nextLine();
+			System.out.println("brand :");
+			String input2 = sc.nextLine();
+			System.out.println("enter price :");
+			Double price= sc.nextDouble();
+			System.out.println("enter stock :");
+			int stock = sc.nextInt();
+			System.out.println("enter age");
+			int age = sc.nextInt();
+			if ( price< 0) {
+				throw new CustomExeptionClass("Cant have negative price, try again");
+			}
+			if ( age < 0) {
+				throw new CustomExeptionClass("Cant have negative age, try again");
+			}
+			if (stock < 0 ) {
+				
+				throw new CustomExeptionClass("Cant have negative stock, try again");
+				
+			}
+			
+			System.out.println("Enter material type");
+			String material = sc1.nextLine();
+			
+			System.out.println("enter s,m or h");
+			String bb = sc1.nextLine().toUpperCase();
+			
+			Object [] fig = {input1, input2, price, stock, age, material, bb};
+			
+			return fig;
+			} catch (InputMismatchException e) {
+				mismatch();
+				addAnimals();
+			}
+		
+		return null;
+		
+	}
+	public static Object [] addPuz() throws CustomExeptionClass  {
+		try {
+		Scanner sc = new Scanner(System.in);
+		Scanner sc1 = new Scanner(System.in);
+		System.out.println("enter name ");
+		String input1 = sc.nextLine();
+		System.out.println("brand :");
+		String input2 = sc.nextLine();
+		System.out.println("enter price :");
+		Double price= sc.nextDouble();
+		System.out.println("enter stock :");
+		int stock = sc.nextInt();
+		System.out.println("enter age");
+		int age = sc.nextInt();
+		if (price< 0) {
+			throw new CustomExeptionClass("Cant have negative price, try again");
+		}
+		if ( age < 0) {
+			throw new CustomExeptionClass("Cant have negative age, try again");
+		}
+		if (stock < 0 ) {
+			
+			throw new CustomExeptionClass("Cant have negative stock, try again");
+			
+		}
+		
+		 
+		System.out.println("enter M,C,L,T or R");
+		String bb = sc1.nextLine().toUpperCase();
+		
+		Object [] fig = {input1, input2, price, stock, age, bb};
+		return fig;
+		} catch (InputMismatchException e) {
+			mismatch();
+			addPuz();
+		}
+		
+		
+		return null;
+			
+		
+	}
+	
+	public static Object [] addBoard() throws CustomExeptionClass {
+		try {
+		Scanner sc = new Scanner(System.in);
+		Scanner sc1 = new Scanner(System.in);
+		System.out.println("enter name ");
+		String input1 = sc.nextLine();
+		System.out.println("brand :");
+		String input2 = sc.nextLine();
+		System.out.println("enter price :");
+		Double price= sc.nextDouble();
+		if ( price< 0) {
+			throw new CustomExeptionClass("Cant have negative price, try again");
+		}
+		System.out.println("enter stock :");
+		int stock = sc.nextInt();
+		if (stock < 0 ) {
+			
+			throw new CustomExeptionClass("Cant have negative stock, try again");
+			
+		}
+		System.out.println("enter age");
+		int age = sc.nextInt();
 
-         System.out.println("Classify your figure: either Action(A), Doll(D), or Historic(H):");
-         String bb = sc1.nextLine().toUpperCase();
+		if ( age < 0) {
+			throw new CustomExeptionClass("Cant have negative age, try again");
+		}
+		System.out.println("Enter min age :");
+		int min = sc.nextInt();
+		if ( min < 0) {
+			throw new CustomExeptionClass("min players cant be less than 0, try again");
+		}
+		System.out.println("Enter max age :");
+		int max = sc.nextInt();
+		if ( max < 0) {
+			throw new CustomExeptionClass("max players cant be less than 0, try again");
+		}
+		System.out.println("Enter designer names seperated by commas ");
 
-         Object [] fig = {sin, input1, input2, d, stock, age, bb};
-         return fig;
-  
-         } catch (InputMismatchException e) {
-             mismatch();
-             addFig();
-         }
-
-         return null;
-
-     }
-     
-     
-     public static Object [] addAnimal() throws ExceptionClass{
-         try {
-         Scanner sc = new Scanner(System.in);
-         Scanner sc1 = new Scanner(System.in);
-         System.out.println("Enter Serial Number: ");
-         String sin = sc.nextLine();
-         System.out.println("Enter Toy Name: ");
-         String input1 = sc.nextLine();
-         System.out.println("Enter Toy Brand: ");
-         String input2 = sc.nextLine();
-         System.out.println("Enter Toy Price: ");
-         Double d = sc.nextDouble();
-         System.out.println("Enter Available Count: ");
-         int stock = sc.nextInt();
-         System.out.println("Enter Appropriate Age: ");
-         int age = sc.nextInt();
-         System.out.println("Enter Material: ");
-         String material = sc.nextLine();
-         
-         if (stock < 0 ) {
-             throw new ExceptionClass("The stock cannot be negative, try again!");
-         }
-         if ( age < 0) {
-             throw new ExceptionClass("The appropriate age cannot be negative, try again!");
-         }
-         if ( d < 0) {
-             throw new ExceptionClass("The price cannot be negative, try again!");
-         }
-         if (sin.charAt(0) != 2 || sin.charAt(0) != 3) {
-        	 throw new ExceptionClass("The first digit of a animals serial number must be 2 or 3, try again!");
-         }
-
-         System.out.println("Enter size: either Small(S), Medium(M), or Large(L): ");
-         String bb = sc1.nextLine().toUpperCase();
-
-         Object [] animal = {sin, input1, input2, d, stock, age, material, bb};
-         return animal;
-  
-         } catch (InputMismatchException e) {
-             mismatch();
-             addAnimal();
-         }
-
-         return null;
-
-     }
-     
-     
-     public static Object [] addPuzzle() throws ExceptionClass{
-         try {
-         Scanner sc = new Scanner(System.in);
-         Scanner sc1 = new Scanner(System.in);
-         System.out.println("Enter Serial Number:");
-         String sin = sc.nextLine();
-         System.out.println("Enter Toy Name: ");
-         String input1 = sc.nextLine();
-         System.out.println("Enter Toy Brand: ");
-         String input2 = sc.nextLine();
-         System.out.println("Enter Toy Price: ");
-         Double d = sc.nextDouble();
-         System.out.println("Enter Available Count: ");
-         int stock = sc.nextInt();
-         System.out.println("Enter Appropriate Age: ");
-         int age = sc.nextInt();
-         
-         if (stock < 0 ) {
-             throw new ExceptionClass("The stock cannot be negative, try again!");
-         }
-         if ( age < 0) {
-             throw new ExceptionClass("The appropriate age cannot be negative, try again!");
-         }
-         if ( d < 0) {
-             throw new ExceptionClass("The price cannot be negative, try again!");
-         }
-         if (sin.charAt(0) != 4 || sin.charAt(0) != 5 || sin.charAt(0) != 6) {
-        	 throw new ExceptionClass("The first digit of a puzzles serial number must be 4, 5, or 6, try again!");
-         }
-
-         System.out.println("Enter puzzle-type: either Mechanical(M), Cryptic(C), Logic(L), Trivia(T), or Riddle(R): ");
-         String bb = sc1.nextLine().toUpperCase();
-
-         Object [] animal = {sin, input1, input2, d, stock, age, bb};
-         return animal;
-  
-         } catch (InputMismatchException e) {
-             mismatch();
-             addPuzzle();
-         }
-
-         return null;
-
-     }
-     
-     
-     
-     public static void toyAdded() {
-    	 System.out.println("New Toy Added!");
-     }
-     public static void pressEnter() {
-    	 System.out.println("Press Enter to Continue...");
-     }
- 
-     public static Object [] addBoardGame() throws ExceptionClass{
-         try {
-         Scanner sc = new Scanner(System.in);
-         Scanner sc1 = new Scanner(System.in);
-         System.out.println("Enter Serial Number: ");
-         String sin = sc.nextLine();
-         System.out.println("Enter Toy Name: ");
-         String input1 = sc.nextLine();
-         System.out.println("Enter Toy Brand: ");
-         String input2 = sc.nextLine();
-         System.out.println("Enter Toy Price: ");
-         Double d = sc.nextDouble();
-         System.out.println("Enter Available Count: ");
-         int stock = sc.nextInt();
-         System.out.println("Enter Appropriate Age: ");
-         int age = sc.nextInt();
-         System.out.println("Enter Minimum Number of Players: ");
-         int min = sc.nextInt();
-         System.out.println("Enter Maximum Number of Players: ");
-         int max = sc.nextInt();
-         System.out.println("Enter Designer Names(Use ',' to seperate multiple names): ");
-         String names = sc.nextLine();
-         
-         
-         if (stock < 0 ) {
-             throw new ExceptionClass("The stock cannot be negative! Try again.");
-         }
-         if ( age < 0) {
-             throw new ExceptionClass("The appropriate age cannot be negative! Try again.");
-         }
-         if ( d < 0) {
-             throw new ExceptionClass("The price cannot be negative! Try again.");
-         }
-         if (sin.charAt(0) != 7 || sin.charAt(0) != 8 || sin.charAt(0) != 9) {
-        	 throw new ExceptionClass("The first digit of a board games serial number must be 7, 8, or 9! Try again.");
-         }
-         if (min < 1) {
-        	 throw new ExceptionClass("The minimum amount of players must be 1 or more! Try again.");
-         }
-         if (max < min) {
-        	 throw new ExceptionClass("The maximum amount of players must be greater than the minimum amount of players! Try again.");
-         }
-
-
-         Object [] boardgame = {sin, input1, input2, d, stock, age, min, max, names};
-         return boardgame;
-  
-         } catch (InputMismatchException e) {
-             mismatch();
-             addBoardGame();
-         }
-
-         return null;
-
-     }
+	
+		String des = sc1.nextLine();
+	
+		
+	
+		Object [] fig = {input1, input2, price, stock, age, min, max,des};
+		return fig;
+		
+		}  catch (InputMismatchException e) {
+			mismatch();
+			addBoard();
+		}
+	
+		return null;
+	}
      
      public static void dataSaved() {
     	 System.out.println("Saving Data Into Database.../n");

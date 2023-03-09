@@ -1,25 +1,37 @@
 package model;
 
+
+
 public class Figures extends Toy {
+	// A String field to store the type of the figure
+	private String type;
 	
-	private String classification;
+	// Getter method for type
+	public String getType() {
+		return type;
+	}
 	
-	public Figures(String sin, String item, String brand, int price, int stock, int age, String classification) {
+	// Setter method for type
+	public void setType(String type) {
+		this.type = type;
+	}
+	
+	// Constructor for Figures class
+	public Figures(String sin, String item, String brand, double price, int stock, int age, String type) {
 		super(sin, item, brand, price, stock, age);
-		this.classification = classification;
+		this.type = type;
 	}
 	
-	public void setClassification(String classification) {
-		this.classification = classification;
-	}
-	
-	public String getClassification() {
-		return classification;
-	}
-	
+	// Overriding the toString method to provide a custom string representation of the Figures object
 	@Override
 	public String toString() {
-		return "Category: Figure" + ", Serial Number:'" + getSIN() + '\'' + ", Name:'" + getItem() + '\'' + ", Brand:'" + getBrand() + '\'' + ", Price:" + getPrice() + ", Available Count:" + getStock() +  ", Age Appropriate:" + getAge() + ", Classification:'" + classification + "/n";
+		return "Category: Figure"+ " S_N: " +getS_N()+ ", Name is " + getName()+ ", Brand is  " + getBrand() +  ", Cost: " + getPrice() + " , Stock: " + getCount() +". Age restriction " +getAge() + ", doll type " + getType();
+		
 	}
+	
+	// Overriding the format method from the Toy class to return a semicolon-separated string of all attributes of Figures object
+	@Override
+	 public String format() {
+		 return getS_N()+";" + getName()+";" + getBrand()+";" + getPrice()+";"  + getCount()+";" +getAge()+";" + getType(); 
+	 }
 }
-

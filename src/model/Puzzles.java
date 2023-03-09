@@ -1,25 +1,36 @@
 package model;
 
+import java.math.BigInteger;
+
 public class Puzzles extends Toy {
+	// A String variable to store the type of puzzle
+	public String type;
 	
-	private String puzzleType;
+	// Getter method to get the type of puzzle
+	public String getType() {
+		return type;
+	}
 	
-	public Puzzles(String sin, String item, String brand, int price, int stock, int age, String puzzleType) {
+	// Setter method to set the type of puzzle
+	public void setType(String type) {
+		this.type = type;
+	}
+	
+	// Constructor to initialize the Puzzles object with the given values
+	public Puzzles(String sin, String item, String brand, double price, int stock, int age, String type) {
 		super(sin, item, brand, price, stock, age);
-		this.puzzleType = puzzleType;
+		this.type = type;
 	}
 	
-	public void setPuzzleType(String puzzleType) {
-		this.puzzleType = puzzleType;
-	}
-	
-	public String getPuzzleType() {
-		return puzzleType;
-	}
-	
+	// Override the toString method to display the Puzzles object as a string
 	@Override
 	public String toString() {
-		return "Category: Puzzle" + ", Serial Number:'" + getSIN() + '\'' + ", Name:'" + getItem() + '\'' + ", Brand:'" + getBrand() + '\'' + ", Price:" + getPrice() + ", Available Count:" + getStock() +  ", Age Appropriate:" + getAge() + ", Puzzle Type:'" + puzzleType + "/n";
+		return "Category: Puzzles " + " S_N: " + getS_N() + " Name is " + getName() + " Brand is  " + getBrand() + 
+			" Cost: " + getPrice() + " Stock: " + getCount() + " Age restriction " + getAge() + " puzzle type " + getType();
 	}
+	
+	// A method to format the Puzzles object into a string with a specific format
+	public String format() {
+		 return getS_N() + ";" + getName() + ";" + getBrand() + ";" + getPrice() + ";"  + getCount() + ";" + getAge() + ";" + getType(); 
+	 }
 }
-
