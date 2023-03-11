@@ -140,7 +140,12 @@ public class AppMenu {
          sc.nextLine(); // waits for user to press enter
      }
 
-     
+     /**
+
+     Method to add a new figure toy to the ArrayList.
+     @throws CustomExeptionClass if any of the values entered are negative.
+     @return an Object array containing information on the newly added figure toy.
+     */
      
  	public static Object [] addFig() throws CustomExeptionClass{
 		try {
@@ -185,6 +190,12 @@ public class AppMenu {
 			
 		
 	}
+    /**
+
+    Method to add a new Animal toy to the ArrayList.
+    @throws CustomExeptionClass if any of the values entered are negative.
+    @return an Object array containing information on the newly added figure toy.
+    */
 	public static Object[] addAnimals() throws CustomExeptionClass {
 		try {
 			Scanner sc = new Scanner(System.in);
@@ -228,6 +239,13 @@ public class AppMenu {
 		return null;
 		
 	}
+	/**
+
+	This method prompts the user to input information about a puzzle product and creates an Object array with the information.
+	The information includes the name, brand, price, stock, age, material type, and type.
+	@return Object array with the animal product information.
+	@throws CustomExeptionClass when the price, age or stock input is negative.
+	*/
 	public static Object [] addPuz() throws CustomExeptionClass  {
 		try {
 		Scanner sc = new Scanner(System.in);
@@ -270,6 +288,12 @@ public class AppMenu {
 			
 		
 	}
+	 /**
+
+    Method to add a new BoardGames toy to the ArrayList.
+    @throws CustomExeptionClass if any of the values entered are negative.
+    @return an Object array containing information on the newly added figure toy.
+    */
 	
 	public static Object [] addBoard() throws CustomExeptionClass {
 		try {
