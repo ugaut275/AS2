@@ -1,5 +1,6 @@
 package controller;
 
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -177,7 +178,7 @@ public class AppManager extends AppMenu{
 				found = true;
 				secondList.add(toys);
 				count++;
-					printList(count, toys);
+				printList(count, toys);
 
 			}
 
@@ -582,6 +583,9 @@ public class AppManager extends AppMenu{
 				int age = (int) a[4];
 				int min = (int )a[5];
 				int max = (int)a[6];
+				if ( min > max) {
+					throw new CustomExeptionClass("Min players cant be more than max players");
+				}
 				String des = (String) a[7];
 			
 				arrList.add(new Board_Games(SN, input1, input2, price, stock, age, min,max,des));

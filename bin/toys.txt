@@ -211,7 +211,7 @@
 7691410700;Hey, That's My Fish!;Game Buff;293.78;9;4;1-7;Barney Lugo
 2629048960;Ducks;Gamezoid;47.43;1;6;Fabric;S
 5247156109;Verbal arithmetic;Gameado;8.29;11;9;M
-7935086963;StarCraft: The Board Game;Gameado;50.81;5;7;1-8;Emeli Davis
+7935086963;StarCraft: The Board Game;Gameado;50.81;4;7;1-8;Emeli Davis
 4585852723;Tsumego;Game Sky;292.41;7;8;M
 9514194360;King Oil;Game Loop;9.65;12;7;2-4;Haniya Woodley
 5279323659;Einstein's Puzzle;Game Demon;182.61;3;6;T
@@ -223,4 +223,3 @@
 1396272830;Power Rangers;Game Mach;277.4;11;5;A
 1778180329;George Washington;Gamegenix;192.31;12;8;H
 4662861666;Acrostic;Game Pixel;70.84;11;9;T
-0123456789;name;verand;2.0;3;4;D
