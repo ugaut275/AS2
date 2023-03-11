@@ -583,15 +583,14 @@ public class AppManager extends AppMenu{
 				int age = (int) a[4];
 				int min = (int )a[5];
 				int max = (int)a[6];
-				if ( min > max) {
-					throw new CustomExeptionClass("Min players cant be more than max players");
-				}
+			
 				String des = (String) a[7];
 			
 				arrList.add(new Board_Games(SN, input1, input2, price, stock, age, min,max,des));
 			
 				
 				saveFile();
+				AppView.display();
 			
 			
 		}	catch(CustomExeptionClass e1) {
@@ -658,7 +657,7 @@ public class AppManager extends AppMenu{
 	
 		if (found == true) {
 			try {
-				System.out.println("Do you want to delete y/n?");
+			askDelete();
 				String userI = sc.nextLine();
 
 				if (userI.equalsIgnoreCase("n")) {
@@ -668,9 +667,10 @@ public class AppManager extends AppMenu{
 					
 					arrList.remove(secondList.get(0));
 					saveFile();
+					AppView.display();
 				}
 				else {
-					System.out.println("please select either y / n");
+					selectDelete();
 					remove();
 				}
 			} catch (IndexOutOfBoundsException e) {

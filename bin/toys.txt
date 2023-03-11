@@ -223,3 +223,4 @@
 1396272830;Power Rangers;Game Mach;277.4;11;5;A
 1778180329;George Washington;Gamegenix;192.31;12;8;H
 4662861666;Acrostic;Game Pixel;70.84;11;9;T
+9632145870;CustomName;CustomBrand;21.0;12;2;3-5;Utsav,Declan

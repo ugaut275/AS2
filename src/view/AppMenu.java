@@ -37,7 +37,12 @@ public class AppMenu {
 		return 0;
 	    }
 	 
-	 
+	 public static void askDelete(){
+			System.out.println("Do you want to delete y/n?");
+	 }
+	 public static void selectDelete() {
+		 System.out.println("please select either y / n");
+	 }
 	 
 	 public static int searchAndPurchase() {
 		 try {
@@ -292,7 +297,7 @@ public class AppMenu {
 		if ( age < 0) {
 			throw new CustomExeptionClass("Cant have negative age, try again");
 		}
-		System.out.println("Enter min age :");
+		System.out.println("Enter min players :");
 		int min = sc.nextInt();
 		if ( min < 0) {
 			throw new CustomExeptionClass("min players cant be less than 0, try again");
@@ -301,6 +306,9 @@ public class AppMenu {
 		int max = sc.nextInt();
 		if ( max < 0) {
 			throw new CustomExeptionClass("max players cant be less than 0, try again");
+		}
+		if (min>max) {
+			throw new CustomExeptionClass("min players cant be more than max players");
 		}
 		System.out.println("Enter designer names seperated by commas ");
 
