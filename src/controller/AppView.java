@@ -1,14 +1,5 @@
 package controller;
 
-import java.util.InputMismatchException;
-/**
-	The AppView class provides methods to display and manage the application menu
-	and interact with the user inputs.
-	Extends the AppMenu class to access the menu options.
- */
-import java.util.Scanner;
-
-import model.CustomExeptionClass;
 import view.AppMenu;
 
 public class AppView extends AppMenu {

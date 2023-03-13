@@ -106,7 +106,7 @@ public class Board_Games extends Toy {
 	 */
 	@Override
 	public String toString() {
-		return "Category: Board Games " + " S_N: " +getS_N()+ " Name is " + getName()+ " Brand is  " + getBrand() +  " Cost: " + getPrice() + " Stock: " + getCount() +" Min Players " + getMin()
+		return "Category: Board Games " + " S_N: " +getS_N()+ " Name is " + getName()+ " Brand is  " + getBrand() +  " Cost: " + getPrice() + " Stock: " + getCount() +" Min Players " + getMin();
 }
 	/**
 
