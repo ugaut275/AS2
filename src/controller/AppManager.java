@@ -539,10 +539,7 @@ public class AppManager extends AppMenu {
 			e.printStackTrace();
 			e.getMessage();
 			addFigures(SN);
-		} catch (Exception e) {
-			mismatch();
-			addFigures(SN);
-		}
+		} 
 
 	}
 	/**
@@ -578,10 +575,7 @@ public class AppManager extends AppMenu {
 			e.printStackTrace();
 			e.getMessage();
 			addPuzzles(SN);
-		} catch (Exception e) {
-			mismatch();
-			addPuzzles(SN);
-		}
+		} 
 
 	}
 	/**
@@ -618,9 +612,6 @@ public class AppManager extends AppMenu {
 		} catch (CustomExeptionClass e) {
 			e.printStackTrace();
 			e.getMessage();
-			addAnimal(SN);
-		} catch (Exception e) {
-			mismatch();
 			addAnimal(SN);
 		}
 
